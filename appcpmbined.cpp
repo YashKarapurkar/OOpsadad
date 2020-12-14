@@ -174,6 +174,7 @@ void pacman(){
     bot_3.setFill();
 
     XEvent e1;
+    nextEvent(e1);
     char pos, chpos;
     bool flag=0;
     int x=495,y=395;
@@ -419,6 +420,7 @@ void pacman2(){
     int n22 =1;
 
     XEvent e1;
+    nextEvent(e1);
     char pos, chpos;
     bool flag=0;
     int x=495,y=395;
@@ -633,22 +635,23 @@ main_program
 	cout<<"\t\t\t WELCOME TO THE PAC MAN GAME\n\n";
 	cout<<"ENTER YOUR NAME:";
 	cin.getline(name,100);
-	cout<<"____________________________\n\n";
+	cout<<"__________\n\n";
 	system("PAUSE");
 
 	system("CLS");
-	cout<<"____________________________\n\n";
+	cout<<"__________\n\n";
 	cout<<"\t\t\t THANK YOU FOR PLAYING !!!!!!!!!!!!!!!!!!!!!\n\n";
-    cout<<"____________________________\n\n";
+    cout<<"__________\n\n";
 
     initCanvas("Pac man",1320,720);                  //creating canvas and displaying buttons to play/get help /about/exit etc.
+    Here:
+
     Text t1(660,150,"WELCOME TO PAC-MAN");
 
 
     Rectangle r(660,400,400,450);
     r.setColor(COLOR(255,220,142));
 	r.setFill();
-
 
     button play;
     play.r.reset(660,250,100,50);
@@ -716,12 +719,15 @@ main_program
                 {
                 int i,j,k;
     beginFrame();
-    Rectangle r1(LE,BR,450,250),r2(LE,BR,100,50),r3(LE,BR,LEN,BRD);
+    Rectangle r1(LE,BR,450,250),r2(LE,BR,100,50),r3(LE,BR,LEN,BRD),r4(LE,BR,LEN,BRD);
     r1.setColor(COLOR("blue"));
     r2.setColor(COLOR("blue"));
     r3.setColor(COLOR("black"));
     r3.setFill();
     r3.imprint(),r3.hide();
+    r4.setColor(COLOR("white"));
+    r4.setFill();
+    r4.hide();
     Line l1(LE-25,BR-25,LE+25,BR-25),l2(LE-100,BR-25,LE-75,BR-25),l3(LE-50,BR-75,LE+50,BR-75);
     Line l4(LE-100,BR-75,LE-100,BR-125);
     l1.setColor(COLOR("black"));
@@ -880,6 +886,8 @@ main_program
     endFrame();
 
     pacman();
+    r4.show(),r4.imprint(),r4.hide();
+    goto Here;
 
                     break;
 
@@ -891,13 +899,16 @@ main_program
    int i,j,k;
    beginFrame();
 
-   Rectangle r1(LE,BR,450,525),r2(LE,BR,100,50),r3(LE,BR,LEN,BRD),r4(LE,BR,50,25),r5(LE,BR,25,25);
+   Rectangle r1(LE,BR,450,525),r2(LE,BR,100,50),r3(LE,BR,LEN,BRD),r4(LE,BR,50,25),r5(LE,BR,25,25),r6(LE,BR,LEN,BRD);
    r1.setColor(COLOR("blue"));
    r2.setColor(COLOR("blue"));
    r3.setColor(COLOR("black"));
    r3.setFill();
    r3.imprint();
    r3.hide();
+   r6.setColor(COLOR("white"));
+   r6.setFill();
+   r6.hide();
    r4.setColor(COLOR("blue"));
    r5.setColor(COLOR("blue"));
 
@@ -1289,6 +1300,8 @@ main_program
    endFrame();
 
     pacman2();
+    r6.show(),r6.imprint(),r6.hide();
+    goto Here;
 
                     break;
                 }
